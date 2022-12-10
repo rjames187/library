@@ -29,12 +29,12 @@ function renderBook(book) {
     card.appendChild(title);
 
     const author = document.createElement("div");
-    author.textContent = book.author
+    author.textContent = `by ${book.author}`
     author.classList.add("author");
     card.appendChild(author);
 
     const pages = document.createElement("div");
-    pages.textContent = book.pages;
+    pages.textContent = `- ${book.pages} pages`;
     pages.classList.add("pages");
     card.appendChild(pages);
 
@@ -55,5 +55,6 @@ function renderLibrary() {
 // testing
 
 addBookToLibrary("Designing Data Intensive Applications", "Martin Kleppman", 661, false);
+addBookToLibrary("Refactoring UI", "Adam Wathan", 252, true);
 
 renderLibrary();
