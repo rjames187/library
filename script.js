@@ -25,6 +25,19 @@ const openFormHandler = () => {
     mask.classList.toggle("invisible");
 }
 
+const submitFormHandler = (e) => {
+    e.preventDefault();
+
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const read = document.getElementById("has-read").checked;
+
+    addBookToLibrary(title, author, pages, read);
+    openFormHandler();
+    renderBook(myLibrary[myLibrary.length - 1]);
+}
+
 // Event Listeners
 
 const formOpener = document.getElementById("add");
@@ -32,6 +45,9 @@ formOpener.addEventListener("click", openFormHandler);
 
 const formCloser = document.getElementById("close");
 formCloser.addEventListener("click", openFormHandler);
+
+const submit = document.querySelector('button[type="submit"]');
+submit.addEventListener("click", submitFormHandler);
 
 // DOM Manipulation
 
