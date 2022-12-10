@@ -13,7 +13,8 @@
 
     </main>
     <div id="add">+<div class="invisible">Add New Book</div></div>
-    <form>
+    <div id="mask" class="invisible"></div>
+    <form class="invisible">
             <label for="title">Title</label>
             <input id="title" type="text" required/>
 
@@ -28,8 +29,8 @@
             <label for="hasnt-read">Hasn't Read</label>
             <input id="hasnt-read" type="radio" name="read" required/>
         
-            <button type="submit">Add</button> 
-         
+            <button type="submit">Add</button>
+            <div id="close">X<div class="invisible">Close Form</div></div> 
     </form>
 </body>
 </html>

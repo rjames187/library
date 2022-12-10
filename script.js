@@ -16,6 +16,23 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(new Book(title, author, pages, read));
 }
 
+// Handlers
+
+const openFormHandler = () => {
+    const form = document.querySelector("form");
+    const mask = document.getElementById("mask");
+    form.classList.toggle("invisible");
+    mask.classList.toggle("invisible");
+}
+
+// Event Listeners
+
+const formOpener = document.getElementById("add");
+formOpener.addEventListener("click", openFormHandler);
+
+const formCloser = document.getElementById("close");
+formCloser.addEventListener("click", openFormHandler);
+
 // DOM Manipulation
 
 const main = document.querySelector("main");
