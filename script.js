@@ -56,5 +56,9 @@ function renderLibrary() {
 
 addBookToLibrary("Designing Data Intensive Applications", "Martin Kleppman", 661, false);
 addBookToLibrary("Refactoring UI", "Adam Wathan", 252, true);
+addBookToLibrary("Computer Systems: A Programmer's Perspective", "Randal Bryant", 1005, false);
+addBookToLibrary("The Algorithm Design Manual", "Steven Skiena", 748, false);
+addBookToLibrary("Tao of React", "Alex Kondov", 113, false);
+addBookToLibrary("100 Things Every Designer Needs to Know About People", "Susan Weinschenk", 339, true);
 
 renderLibrary();
