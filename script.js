@@ -21,25 +21,39 @@ function addBookToLibrary(title, author, pages, read) {
 const main = document.querySelector("main");
 
 function renderBook(book) {
-    const card = document.createElement("div.card");
+    const card = document.createElement("div");
+    card.classList.add("card");
 
     const title = document.createElement("h1");
     title.textContent = book.title;
     card.appendChild(title);
 
-    const author = document.createElement("div.author");
+    const author = document.createElement("div");
     author.textContent = book.author
+    author.classList.add("author");
     card.appendChild(author);
 
-    const pages = document.createElement("div.pages");
+    const pages = document.createElement("div");
     pages.textContent = book.pages;
+    pages.classList.add("pages");
     card.appendChild(pages);
 
-    const read = document.createElement(book.read ? "button.read" : "button.not-read");
-    read.textContent = book.read ? "button.read" : "button.not-read";
+    const read = document.createElement("button");
+    read.textContent = book.read ? "Read" : "Not Read";
+    read.classList.add(book.read ? "read" : "not-read");
     card.appendChild(read);
+
+    main.appendChild(card);
+}
+
+function renderLibrary() {
+    myLibrary.forEach(book => {
+        renderBook(book);
+    })
 }
 
 // testing
 
 addBookToLibrary("Designing Data Intensive Applications", "Martin Kleppman", 661, false);
+
+renderLibrary();
