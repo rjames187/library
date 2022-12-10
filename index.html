@@ -12,6 +12,24 @@
     <main>
 
     </main>
-    <div id="add">+</div>
+    <div id="add">+<div class="invisible">Add New Book</div></div>
+    <form>
+            <label for="title">Title</label>
+            <input id="title" type="text" required/>
+
+            <label for="author">Author</label>
+            <input id="author" type="text" required/>
+       
+            <label for="pages">Pages</label>
+            <input id="pages" type="number" required/>
+
+            <label for="has-read">Has Read</label>
+            <input id="has-read" type="radio" name="read" required/>
+            <label for="hasnt-read">Hasn't Read</label>
+            <input id="hasnt-read" type="radio" name="read" required/>
+        
+            <button type="submit">Add</button> 
+         
+    </form>
 </body>
 </html>
