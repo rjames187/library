@@ -7,6 +7,9 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.toggleRead = function() {
+        this.read = this.read ? false : true;
+    }
     this.info = function() {
         console.log(`${this.title} by ${this.author}, ${this.pages}, ${this.read ? "read" : "not read yet"}`)
     }
@@ -38,11 +41,23 @@ const submitFormHandler = (e) => {
     renderBook(myLibrary[myLibrary.length - 1]);
 }
 
+const toggleReadHandler = (e) => {
+    const id = getCardId(e);
+    myLibrary[id].toggleRead();
+    renderLibrary();
+}
+
 const deleteHandler = (e) => {
-    const card = e.target.parentElement;
-    const id = card.getAttribute("data");
+    const id = getCardId(e);
     myLibrary.splice(id, 1, null);
     renderLibrary();
+}
+
+// utility
+
+function getCardId(e) {
+    const card = e.target.parentElement;
+    return card.getAttribute("data");
 }
 
 // Event Listeners
@@ -89,6 +104,7 @@ function renderBook(book, i) {
     const read = document.createElement("button");
     read.textContent = book.read ? "Read" : "Not Read";
     read.classList.add(book.read ? "read" : "not-read");
+    read.addEventListener("click", toggleReadHandler);
     card.appendChild(read);
 
     const remove = document.createElement("div");
