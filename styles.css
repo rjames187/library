@@ -121,7 +121,7 @@ label {
     color: #334155;
 }
 
-#close {
+#close, .delete {
     background-color: #fecdd3;
     border: solid #be123c 3px;
     color: #be123c;
@@ -135,6 +135,10 @@ label {
     align-items: center;
     cursor: pointer;
     font-size: 13px;
+}
+
+.delete {
+    align-self: end;
 }
 
 #mask {

@@ -38,6 +38,13 @@ const submitFormHandler = (e) => {
     renderBook(myLibrary[myLibrary.length - 1]);
 }
 
+const deleteHandler = (e) => {
+    const card = e.target.parentElement;
+    const id = card.getAttribute("data");
+    myLibrary.splice(id, 1, null);
+    renderLibrary();
+}
+
 // Event Listeners
 
 const formOpener = document.getElementById("add");
@@ -53,9 +60,17 @@ submit.addEventListener("click", submitFormHandler);
 
 const main = document.querySelector("main");
 
-function renderBook(book) {
+function clearRenders() {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        card.remove();
+    })
+}
+
+function renderBook(book, i) {
     const card = document.createElement("div");
     card.classList.add("card");
+    card.setAttribute("data", i);
 
     const title = document.createElement("h1");
     title.textContent = book.title;
@@ -76,12 +91,21 @@ function renderBook(book) {
     read.classList.add(book.read ? "read" : "not-read");
     card.appendChild(read);
 
+    const remove = document.createElement("div");
+    remove.textContent = "X";
+    remove.classList.add("delete");
+    remove.addEventListener("click", deleteHandler);
+    card.appendChild(remove);
+
     main.appendChild(card);
 }
 
 function renderLibrary() {
-    myLibrary.forEach(book => {
-        renderBook(book);
+    clearRenders();
+    myLibrary.forEach((book, i) => {
+        if (book) {
+            renderBook(book, i);
+        }
     })
 }
 
